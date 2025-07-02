@@ -271,6 +271,12 @@ export class Player {
                     this.shameCount = 0;
                 }
             }
+
+            if (this.packet_spam >= 50000) {
+                this.socket.close();
+                this.socket = null;
+            }
+
             // REGENS AND AUTO:
             timerCount -= 1;
             if (timerCount <= 0) {
@@ -295,11 +301,6 @@ export class Player {
                     this.changeHealth(this.healCol, this);
                 }
                 timerCount = config.serverUpdateRate;
-
-                if (this.packet_spam >= 100000) {
-                    this.socket.close();
-                    this.socket = null;
-                }
 
                 this.packet_spam = 0;
             }
