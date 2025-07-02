@@ -23,6 +23,7 @@ export class Player {
     ping_cooldown = 0;
 
     is_bot = false;
+    packet_spam = 0;
 
     async send(type, ...data) {
 
@@ -294,6 +295,13 @@ export class Player {
                     this.changeHealth(this.healCol, this);
                 }
                 timerCount = config.serverUpdateRate;
+
+                if (this.packet_spam >= 100000) {
+                    this.socket.close();
+                    this.socket = null;
+                }
+
+                this.packet_spam = 0;
             }
 
             // CHECK KILL:

@@ -28,10 +28,11 @@ export class Game {
         broadcast: async (type, ...data) => {
             await delay();
             for (const player of this.players) {
+                if (!player.socket) continue;
                 player.socket.send(encode([
                     type,
                     data
-                ]))
+                ]));
             }
 
         }

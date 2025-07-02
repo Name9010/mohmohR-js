@@ -51,6 +51,7 @@ wss.on("connection", (socket, req) => {
     const player = game.addPlayer(socket);
 
     const emit = async (type, ...data) => {
+        if (!player.socket) return;
         await delay();
         socket.send(encode([type, data]));
     };
@@ -110,7 +111,10 @@ wss.on("connection", (socket, req) => {
     
                     if (player.buildIndex >= 0) {
                         const item = items.list[player.buildIndex];
-                        if (data[0]) player.buildItem(item);
+                        if (data[0]) {
+                            player.buildItem(item);
+                            player.packet_spam++;
+                        }
                         player.mouseState = 0;
                         player.hits = 0;
                     }
@@ -210,7 +214,7 @@ wss.on("connection", (socket, req) => {
                             }
                         } else {
                             if (id == 0) {
-                                player.tail = null;
+                                player.tail = {};
                                 player.tailIndex = 0;
                                 emit("us", 1, 0, 1);
                             }
@@ -233,7 +237,7 @@ wss.on("connection", (socket, req) => {
                             }
                         } else {
                             if (id == 0) {
-                                player.skin = null;
+                                player.skin = {};
                                 player.skinIndex = 0;
                                 emit("us", 1, 0, 0);
                             }
