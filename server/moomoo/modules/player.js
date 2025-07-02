@@ -272,11 +272,6 @@ export class Player {
                 }
             }
 
-            if (this.packet_spam >= 50000) {
-                this.socket.close();
-                this.socket = null;
-            }
-
             // REGENS AND AUTO:
             timerCount -= 1;
             if (timerCount <= 0) {

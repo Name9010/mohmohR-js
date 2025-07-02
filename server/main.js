@@ -113,8 +113,18 @@ wss.on("connection", (socket, req) => {
                     if (player.buildIndex >= 0) {
                         const item = items.list[player.buildIndex];
                         if (data[0]) {
-                            player.buildItem(item);
+
                             player.packet_spam++;
+
+                            if (player.packet_spam >= 10000) {
+                                if (player.socket) {
+                                    player.socket.close();
+                                    player.socket = null;
+                                }
+                            }
+
+                            player.buildItem(item);
+                            
                         }
                         player.mouseState = 0;
                         player.hits = 0;
