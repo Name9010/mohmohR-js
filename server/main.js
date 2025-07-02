@@ -51,8 +51,9 @@ wss.on("connection", (socket, req) => {
     const player = game.addPlayer(socket);
 
     const emit = async (type, ...data) => {
-        if (!player.socket) return;
+
         await delay();
+        if (!player.socket) return;
         socket.send(encode([type, data]));
     };
 

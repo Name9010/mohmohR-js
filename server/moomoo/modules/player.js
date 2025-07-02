@@ -27,9 +27,9 @@ export class Player {
 
     async send(type, ...data) {
 
-        if (!this.socket) return;
-
         await delay();
+
+        if (!this.socket) return;
 
         this.socket.send(encode([type, data]));
 
