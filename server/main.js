@@ -36,7 +36,13 @@ app.use(e.static("../client/public"));
 
 const game = new Game;
 
-wss.on("connection", (socket, req) => {
+wss.on("connection", async (socket, req) => {
+
+    if (
+        game.players.length > config.maxPlayersHard
+    ) {
+        return void socket.close();
+    }
 
     const addr = req.headers["x-forwarded-for"]?.split(",")[0] ?? req.socket.remoteAddress;
 
