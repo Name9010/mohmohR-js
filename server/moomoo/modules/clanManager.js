@@ -27,6 +27,10 @@ export class Clan {
 
         if (player.team) return;
 
+        if (sid === this.owner.sid) {
+            player.is_owner = true;
+        }
+
         player.team = this.title;
         player.send("st", player.team, player.is_owner);
 

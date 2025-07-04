@@ -365,12 +365,7 @@ wss.on("connection", async (socket, req) => {
 
                     if (data[0].length < 1 || data[0].length > 7) break;
 
-                    const created = game.clan_manager.create(data[0], player);
-
-                    if (!created) break;
-
-                    player.clan_cooldown = 200;
-                    player.is_owner = true;
+                    const _created = game.clan_manager.create(data[0], player);
 
                     break;
                 }
@@ -419,6 +414,22 @@ wss.on("connection", async (socket, req) => {
 
                     game.clan_manager.confirm_join(player.team, data[0], data[1]);
                     player.notify.delete(data[0]);
+                    break;
+
+                }
+                case "12": {
+
+                    if (!player.alive) break;
+
+                    if (!player.team) break;
+
+                    if (!player.is_owner) break;
+
+                    if (player.clan_cooldown > 0) break;
+
+                    player.clan_cooldown = 200;
+
+                    game.clan_manager.kick(player.team, data[0]);
                     break;
 
                 }
