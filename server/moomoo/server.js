@@ -101,8 +101,8 @@ export class Game {
             for (const projectile of this.projectiles)
                 projectile.update(delta);
 
-            for (const object of this.game_objects) 
-                object.update(delta);
+            /*for (const object of this.game_objects) 
+                object.update(delta);*/
 
             // leaderboard
             {
@@ -155,7 +155,16 @@ export class Game {
                 player.send("a", null);
 
                 if (sent_objects.length > 0) {
-                    player.send("6", sent_objects.flatMap(object => [object.sid, UTILS.fixTo(object.x, 1), UTILS.fixTo(object.y, 1), object.dir, object.scale, object.type, object.id, object.owner ? object.owner.sid : -1]));
+                    player.send("6", sent_objects.flatMap(object => [
+                        object.sid,
+                        UTILS.fixTo(object.x, 1),
+                        UTILS.fixTo(object.y, 1),
+                        object.dir,
+                        object.scale,
+                        object.type,
+                        object.id,
+                        object.owner ? object.owner.sid : -1
+                    ]));
                 }
 
                 if (minimap_ext.length === 0) continue;
