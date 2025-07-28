@@ -1,11 +1,5 @@
 export const hats = [{
-    id: 45,
-    name: "Shame!",
-    dontSell: true,
-    price: 0,
-    scale: 120,
-    desc: "hacks are for losers"
-  }, {
+  {
     id: 51,
     name: "Moo Cap",
     price: 0,
@@ -249,7 +243,7 @@ export const hats = [{
     price: 10000,
     scale: 120,
     desc: "deal damage to players that damage you",
-    dmg: 0.45
+    dmg: 0.80
   }, {
     id: 53,
     name: "Turret Gear",
