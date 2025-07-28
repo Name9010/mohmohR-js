@@ -594,7 +594,7 @@ export class Player {
                         if (timeSinceHit <= 120) {
                             this.shameCount++;
                             if (this.shameCount >= 40) {
-                                this.shameTimer = 850;
+                                this.shameTimer = 150;
                                 this.shameCount = 0;
                             }
                         } else {
