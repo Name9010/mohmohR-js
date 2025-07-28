@@ -593,8 +593,8 @@ export class Player {
                         this.hitTime = 0;
                         if (timeSinceHit <= 120) {
                             this.shameCount++;
-                            if (this.shameCount >= 8) {
-                                this.shameTimer = 30000;
+                            if (this.shameCount >= 30) {
+                                this.shameTimer = 2000;
                                 this.shameCount = 0;
                             }
                         } else {
