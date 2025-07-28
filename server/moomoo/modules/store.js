@@ -4,6 +4,7 @@ export const hats = [{
     dontSell: true,
     price: 0,
     scale: 120,
+    noEat: false,
     desc: "hacks are for losers"
   }, {
     id: 51,
@@ -159,7 +160,7 @@ export const hats = [{
     scale: 120,
     desc: "reduces damage taken but slows movement",
     spdMult: 0.94,
-    dmgMult: 0.75
+    dmgMult: 0.55
   }, {
     id: 23,
     name: "Anti Venom Gear",
@@ -194,8 +195,8 @@ export const hats = [{
     price: 6000,
     scale: 120,
     desc: "increases damage done but drains health",
-    healthRegen: -15,
-    dmgMultO: 3.5,
+    healthRegen: -5,
+    dmgMultO: 1.5,
     spdMult: 0.96
   }, {
     id: 22,
@@ -249,7 +250,7 @@ export const hats = [{
     price: 10000,
     scale: 120,
     desc: "deal damage to players that damage you",
-    dmg: 1.45
+    dmg: 0.45
   }, {
     id: 53,
     name: "Turret Gear",
@@ -290,8 +291,8 @@ export const hats = [{
     price: 15000,
     scale: 120,
     desc: "increased damage to buildings but slower movement",
-    spdMult: 0.3,
-    bDmg: 3.3
+    spdMult: 0.6,
+    bDmg: 6.3
   }, {
     id: 52,
     name: "Thief Gear",
