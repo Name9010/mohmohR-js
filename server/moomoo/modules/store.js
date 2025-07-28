@@ -1,4 +1,11 @@
 export const hats = [{
+    id: 45,
+    name: "Shame!",
+    dontSell: true,
+    price: 0,
+    scale: 120,
+    desc: "hacks are for losers"
+  }, {
     id: 51,
     name: "Moo Cap",
     price: 0,
@@ -187,8 +194,8 @@ export const hats = [{
     price: 6000,
     scale: 120,
     desc: "increases damage done but drains health",
-    healthRegen: -5,
-    dmgMultO: 1.5,
+    healthRegen: -15,
+    dmgMultO: 3.5,
     spdMult: 0.96
   }, {
     id: 22,
@@ -242,7 +249,7 @@ export const hats = [{
     price: 10000,
     scale: 120,
     desc: "deal damage to players that damage you",
-    dmg: 0.80
+    dmg: 1.45
   }, {
     id: 53,
     name: "Turret Gear",
