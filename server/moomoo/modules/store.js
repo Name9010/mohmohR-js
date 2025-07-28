@@ -1,5 +1,4 @@
 export const hats = [{
-  {
     id: 51,
     name: "Moo Cap",
     price: 0,
