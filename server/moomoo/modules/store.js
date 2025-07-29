@@ -160,7 +160,7 @@ export const hats = [{
     scale: 120,
     desc: "reduces damage taken but slows movement",
     spdMult: 0.94,
-    dmgMult: 0.55
+    dmgMult: 0.75
   }, {
     id: 23,
     name: "Anti Venom Gear",
