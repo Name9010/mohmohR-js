@@ -174,7 +174,7 @@ wss.on("connection", async (socket, req) => {
 
                     if (data[1]) {
 
-                        const wpn = items.weapons[0];
+                        const wpn = items.weapons[data[0]];
 
                         if (!wpn) {
                             break;
