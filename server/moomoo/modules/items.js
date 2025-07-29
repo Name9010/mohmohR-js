@@ -405,20 +405,6 @@ items.weapons = [{
     hideProjectile: true,
     spdMult: 0.6,
     speed: 1500
-},
-{
-    isInvis: !0
-    , id: 16
-    , age: 0
-    , name: "undefined"
-    , desc: "undefined"
-    , src: "undefined"
-    , gather: 1
-    , isMelee: !0
-    , dmg: 0
-    , speed: 0
-    , range: 142
-    , type: -1
 }];
 
 // ITEMS:
