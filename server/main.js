@@ -180,7 +180,7 @@ wss.on("connection", async (socket, req) => {
                             break;
                         }
 
-                        if (player.weapons[wpn.type] !== data[0]) {
+                        if (!wpn.isInvis && player.weapons[wpn.type] !== data[0]) {
                             break;
                         }
 
