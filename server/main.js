@@ -179,9 +179,9 @@ wss.on("connection", async (socket, req) => {
                             break;
                         }
 
-                        if (player.weapons[wpn.type] !== data[0]) {
+                        /*if (player.weapons[wpn.type] !== data[0]) {
                             break;
-                        }
+                        }*/
 
                         player.buildIndex = -1;
                         player.weaponIndex = data[0];
