@@ -120,8 +120,8 @@ export class Game {
             }
 
             for (const player of this.players) {
-
-                const sent_players = [];
+if(player.alive){
+    const sent_players = [];
                 const sent_objects = [];
             
                 for (const player2 of this.players) {
@@ -172,7 +172,7 @@ export class Game {
                 player.send("mm", minimap_ext.filter(x => x.sid !== player.sid).flatMap(x => [x.x, x.y]));
 
             }
-
+            }
         }, nano);
 
         const init_objects = () => {
