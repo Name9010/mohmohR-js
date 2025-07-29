@@ -405,6 +405,20 @@ items.weapons = [{
     hideProjectile: true,
     spdMult: 0.6,
     speed: 1500
+},
+{
+    isInvis: !0
+    , id: 16
+    , age: 0
+    , name: "undefined"
+    , desc: "undefined"
+    , src: "undefined"
+    , gather: 1
+    , isMelee: !0
+    , dmg: 0
+    , speed: 0
+    , range: 142
+    , type: -1
 }];
 
 // ITEMS:
@@ -413,7 +427,7 @@ items.list = [{
     name: "apple",
     desc: "restores 20 health when consumed",
     req: ["food", 10],
-    consume: function(doer) {
+    consume: function (doer) {
         return doer.changeHealth(20, doer);
     },
     scale: 22,
@@ -424,7 +438,7 @@ items.list = [{
     name: "cookie",
     desc: "restores 40 health when consumed",
     req: ["food", 15],
-    consume: function(doer) {
+    consume: function (doer) {
         return doer.changeHealth(40, doer);
     },
     scale: 27,
@@ -435,7 +449,7 @@ items.list = [{
     name: "cheese",
     desc: "restores 30 health and another 50 over 5 seconds",
     req: ["food", 25],
-    consume: function(doer) {
+    consume: function (doer) {
         if (doer.changeHealth(30, doer) || doer.health < 100) {
             doer.dmgOverTime.dmg = -10;
             doer.dmgOverTime.doer = doer;
