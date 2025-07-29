@@ -76,7 +76,7 @@ wss.on("connection", async (socket, req) => {
 
             await delay();
 
-            switch (t) {
+            switch(t) {
                 case "sp": {
 
                     if (player.alive) {
@@ -111,11 +111,11 @@ wss.on("connection", async (socket, req) => {
                     if (data[0] && player.buildIndex === -1) {
                         player.hits++;
                     }
-
+    
                     if (UTILS.isNumber(data[1])) {
                         player.dir = data[1];
                     }
-
+    
                     if (player.buildIndex >= 0) {
                         const item = items.list[player.buildIndex];
                         if (data[0]) {
@@ -130,7 +130,7 @@ wss.on("connection", async (socket, req) => {
                             }
 
                             player.buildItem(item);
-
+                            
                         }
                         player.mouseState = 0;
                         player.hits = 0;
@@ -167,7 +167,6 @@ wss.on("connection", async (socket, req) => {
                         break;
                     }
 
-                    data[0] === "__proto__" && (data[0] = 16);
                     if (!UTILS.isNumber(data[0])) {
                         break;
                     }
@@ -180,9 +179,9 @@ wss.on("connection", async (socket, req) => {
                             break;
                         }
 
-                        /*if (!wpn.isInvis && player.weapons[wpn.type] !== data[0]) {
+                        if (player.weapons[wpn.type] !== data[0]) {
                             break;
-                        }*/
+                        }
 
                         player.buildIndex = -1;
                         player.weaponIndex = data[0];
@@ -216,7 +215,7 @@ wss.on("connection", async (socket, req) => {
 
                     if (index) {
                         let tail = accessories.find(acc => acc.id == id);
-
+            
                         if (tail) {
                             if (type) {
                                 if (!player.tails[id] && player.points >= tail.price) {
@@ -239,7 +238,7 @@ wss.on("connection", async (socket, req) => {
                         }
                     } else {
                         let hat = hats.find(hat => hat.id == id);
-
+            
                         if (hat) {
                             if (type) {
                                 if (!player.skins[id] && player.points >= hat.price) {
@@ -306,7 +305,7 @@ wss.on("connection", async (socket, req) => {
                         player.addItem(i2);
 
                         return true;
-
+                        
                     })();
 
                     if (!update) break;
@@ -384,7 +383,7 @@ wss.on("connection", async (socket, req) => {
                         game.clan_manager.remove(player.team);
                         break;
                     }
-
+                    
                     game.clan_manager.kick(player.team, player.sid);
                     break;
 
@@ -458,7 +457,7 @@ wss.on("connection", async (socket, req) => {
                     break;
             }
 
-        } catch (e) {
+        } catch(e) {
 
             // no need error handling i guess... but hmm
             console.error(e);
