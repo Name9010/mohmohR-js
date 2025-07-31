@@ -351,7 +351,7 @@ wss.on("connection", async (socket, req) => {
                             case "set": {
                                 switch (commands[1]) {
                                     case "variant": {
-                                        if (commands[2] >= 0 && commands[1] <= 4) {
+                                        if (commands[2] >= 0 && commands[2] <= 4) {
                                             player.weaponXP[player.weaponIndex] = config.weaponVariants[commands[2]].xp;
                                         };
                                     } break;
