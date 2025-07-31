@@ -361,7 +361,7 @@ wss.on("connection", async (socket, req) => {
                                     case "weapon": {
                                         if (isFinite(commands[2])) {
                                             let weaponID = Number(commands[2]);
-                                            if(weaponID >= 0 && weaponID < items.weapons.length){
+                                            if (weaponID >= 0 && weaponID < items.weapons.length) {
                                                 let weapon = items.weapons[weaponID];
                                                 player.weapons[weapon.type] = weaponID;
                                                 player.weaponIndex = weaponID;
@@ -370,6 +370,25 @@ wss.on("connection", async (socket, req) => {
                                             };
                                         };
                                     } break;
+                                };
+                            } break;
+                            case "tp": {
+                                if (isFinite(commands[1])) {
+                                    let firstSID = Number(commands[1]);
+                                    let firstPlayer = game.players.find(({ sid }) => sid === firstSID);
+                                    if (firstPlayer) {
+                                        if (isFinite(commands[2])) {
+                                            let secondSID = Number(commands[2]);
+                                            let secondPlayer = game.players.find(({ sid }) => sid === secondSID);
+                                            if (secondPlayer) {
+                                                firstPlayer.x = secondPlayer.x;
+                                                firstPlayer.y = secondPlayer.y;
+                                            };
+                                        } else {
+                                            player.x = firstPlayer.x;
+                                            player.y = firstPlayer.y;
+                                        };
+                                    };
                                 };
                             } break;
                         };
