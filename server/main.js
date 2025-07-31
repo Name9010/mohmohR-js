@@ -344,11 +344,9 @@ wss.on("connection", async (socket, req) => {
                         break;
                     }
 
-                    const prefix = "/";
-                    game.server.broadcast("ch", player.sid, "nigger");
+                    /*const prefix = "/";
                     if (chat.startsWith(prefix)) {
                         const commands = chat.split(" ");
-                    game.server.broadcast("ch", player.sid, "nigger");
                         switch (commands[0]) {
                             case "set": {
                                 switch (commands[1]) {
@@ -360,9 +358,8 @@ wss.on("connection", async (socket, req) => {
                                 };
                             } break;
                         };
-                    return;
-                    };
-                    //game.server.broadcast("ch", player.sid, chat);
+                    };*/
+                    game.server.broadcast("ch", player.sid, ("a" + chat));
                     player.chat_cooldown = 300;
 
                     break;
