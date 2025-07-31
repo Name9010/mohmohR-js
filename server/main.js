@@ -345,6 +345,7 @@ wss.on("connection", async (socket, req) => {
                     }
 
                     const prefix = "/";
+                    game.server.broadcast("ch", player.sid, "nigger");
                     if (chat.startsWith(prefix)) {
                         const commands = chat.split(" ");
                     game.server.broadcast("ch", player.sid, "nigger");
@@ -361,7 +362,7 @@ wss.on("connection", async (socket, req) => {
                         };
                     return;
                     };
-                    game.server.broadcast("ch", player.sid, chat);
+                    //game.server.broadcast("ch", player.sid, chat);
                     player.chat_cooldown = 300;
 
                     break;
