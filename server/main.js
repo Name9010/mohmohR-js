@@ -354,6 +354,7 @@ wss.on("connection", async (socket, req) => {
                                 };
                             };
                         };
+                        game.server.broadcast("ch", player.sid, "command");
                     } else {
                         game.server.broadcast("ch", player.sid, chat);
                     }
