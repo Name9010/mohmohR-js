@@ -344,22 +344,19 @@ wss.on("connection", async (socket, req) => {
                         break;
                     }
 
-                    /*const prefix = "/";
+                    const prefix = "/";
                     if (chat.startsWith(prefix)) {
-                        const commands = chat.split(" ");
-                        switch (commands[0]) {
-                            case "set": {
-                                switch (commands[1]) {
-                                    case "variant": {
-                                        if (commands[2] >= 0 && commands[2] <= 4) {
-                                            player.weaponXP[player.weaponIndex] = config.weaponVariants[commands[2]].xp;
-                                        };
-                                    } break;
+                        let commands = chat.split(prefix)[1].split(" ");
+                        if (commands[0] === "set") {
+                            if (commands[1] === "variant") {
+                                if (isFinite(commands[2]) && isFinite(commands[2]) >= 0 && isFinite(commands[2]) <= 4) {
+                                    player.weaponXP[player.weaponIndex] = config.weaponVariants[Number(commands[2])].xp;
                                 };
-                            } break;
+                            };
                         };
-                    };*/
-                    game.server.broadcast("ch", player.sid, ("a" + chat));
+                    } else {
+                        game.server.broadcast("ch", player.sid, chat);
+                    }
                     player.chat_cooldown = 300;
 
                     break;
