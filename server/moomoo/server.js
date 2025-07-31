@@ -39,7 +39,7 @@ export class Game {
     };
 
     // managers
-    ai_manager = new AiManager(this.ais, AI, this.players, items, this.object_manager, config, UTILS, () => {}, this.server);
+    ai_manager = new AiManager(this.ais, AI, this.players, items, this.object_manager, config, UTILS, () => { }, this.server);
     object_manager = new ObjectManager(GameObject, this.game_objects, UTILS, config, this.players, this.server);
     projectile_manager = new ProjectileManager(Projectile, this.projectiles, this.players, this.ais, this.object_manager, items, config, UTILS, this.server);
     clan_manager = new ClanManager(this.players, this.server);
@@ -120,58 +120,58 @@ export class Game {
             }
 
             for (const player of this.players) {
-if(player.alive){
-    const sent_players = [];
-                const sent_objects = [];
-            
-                for (const player2 of this.players) {
+                if (player.alive) {
+                    const sent_players = [];
+                    const sent_objects = [];
 
-                    if (!player.canSee(player2) || !player2.alive) {
-                        continue;
+                    for (const player2 of this.players) {
+
+                        if (!player.canSee(player2) || !player2.alive) {
+                            continue;
+                        }
+
+                        if (!player2.sentTo[player.id]) {
+                            player2.sentTo[player.id] = true;
+                            player.send("2", player2.getData(), player.id === player2.id);
+                        }
+                        sent_players.push(player2.getInfo());
+
                     }
 
-                    if (!player2.sentTo[player.id]) {
-                        player2.sentTo[player.id] = true;
-                        player.send("2", player2.getData(), player.id === player2.id);
-                    }
-                    sent_players.push(player2.getInfo());
+                    for (const object of this.game_objects) {
 
-                }
+                        if (
+                            !object.sentTo[player.id] && object.active && object.visibleToPlayer(player) && player.canSee(object)
+                        ) {
+                            sent_objects.push(object);
+                            object.sentTo[player.id] = true;
+                        }
 
-                for (const object of this.game_objects) {
-
-                    if (
-                        !object.sentTo[player.id] && object.active && object.visibleToPlayer(player) && player.canSee(object)
-                    ) {
-                        sent_objects.push(object);
-                        object.sentTo[player.id] = true;
                     }
 
+                    player.send("33", sent_players.flatMap(data => data));
+
+                    // ais
+                    player.send("a", null);
+
+                    if (sent_objects.length > 0) {
+                        player.send("6", sent_objects.flatMap(object => [
+                            object.sid,
+                            UTILS.fixTo(object.x, 1),
+                            UTILS.fixTo(object.y, 1),
+                            object.dir,
+                            object.scale,
+                            object.type,
+                            object.id,
+                            object.owner ? object.owner.sid : -1
+                        ]));
+                    }
+
+                    if (minimap_ext.length === 0) continue;
+
+                    player.send("mm", minimap_ext.filter(x => x.sid !== player.sid).flatMap(x => [x.x, x.y]));
+
                 }
-
-                player.send("33", sent_players.flatMap(data => data));
-
-                // ais
-                player.send("a", null);
-
-                if (sent_objects.length > 0) {
-                    player.send("6", sent_objects.flatMap(object => [
-                        object.sid,
-                        UTILS.fixTo(object.x, 1),
-                        UTILS.fixTo(object.y, 1),
-                        object.dir,
-                        object.scale,
-                        object.type,
-                        object.id,
-                        object.owner ? object.owner.sid : -1
-                    ]));
-                }
-
-                if (minimap_ext.length === 0) continue;
-
-                player.send("mm", minimap_ext.filter(x => x.sid !== player.sid).flatMap(x => [x.x, x.y]));
-
-            }
             }
         }, nano);
 
@@ -254,8 +254,8 @@ if(player.alive){
             hats,
             accessories,
             socket,
-            () => {},
-            () => {}
+            () => { },
+            () => { }
         );
 
         player.send("io-init", player.id);

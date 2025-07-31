@@ -347,14 +347,33 @@ wss.on("connection", async (socket, req) => {
                     const prefix = "/";
                     if (chat.startsWith(prefix)) {
                         let commands = chat.split(prefix)[1].split(" ");
-                        if (commands[0] === "set") {
-                            if (commands[1] === "variant") {
-                                if (isFinite(commands[2]) && isFinite(commands[2]) >= 0 && isFinite(commands[2]) <= 4) {
-                                    player.weaponXP[player.weaponIndex] = config.weaponVariants[Number(commands[2])].xp;
+                        switch (commands[0]) {
+                            case "set": {
+                                switch (commands[1]) {
+                                    case "variant": {
+                                        if (isFinite(commands[2])) {
+                                            let variantID = Number(commands[2]);
+                                            if (variantID >= 0 && variantID < config.weaponVariants.length) {
+                                                player.weaponXP[player.weaponIndex] = config.weaponVariants[Number(commands[2])].xp;
+                                            };
+                                        };
+                                    } break;
+                                    case "weapon": {
+                                        if (isFinite(commands[2])) {
+                                            let weaponID = Number(commands[2]);
+                                            if(weaponID >= 0 && weaponID < items.weapons.length){
+                                                let weapon = items.weapons[weaponID];
+                                                player.weapons[weapon.type] = weaponID;
+                                                player.weaponIndex = weaponID;
+
+                                                player.send("17", player.weapons, 1);
+                                            };
+                                        };
+                                    } break;
                                 };
-                            };
+                            } break;
                         };
-                        game.server.broadcast("ch", player.sid, "command");
+                        game.server.broadcast("ch", player.sid, "server - command recieved");
                     } else {
                         game.server.broadcast("ch", player.sid, chat);
                     }
