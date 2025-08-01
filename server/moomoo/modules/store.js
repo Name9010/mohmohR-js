@@ -196,7 +196,7 @@ export const hats = [{
     scale: 120,
     desc: "increases damage done but drains health",
     healthRegen: -10,
-    dmgMultO: 1.5,
+    dmgMultO: 2.5,
     spdMult: 0.96
   }, {
     id: 22,
@@ -259,11 +259,11 @@ export const hats = [{
     scale: 120,
     desc: "you become a walking turret",
     turret: {
-      proj: 1,
+      proj: 4,
       range: 700,
-      rate: 500
+      rate: 1
     },
-    spdMult: 0.7
+    spdMult: 5.7
   }, {
     id: 20,
     name: "Samurai Armor",
