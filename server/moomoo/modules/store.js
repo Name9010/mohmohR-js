@@ -160,7 +160,7 @@ export const hats = [{
     scale: 120,
     desc: "reduces damage taken but slows movement",
     spdMult: 0.94,
-    dmgMult: 0.75
+    dmgMult: 0.35
   }, {
     id: 23,
     name: "Anti Venom Gear",
@@ -195,7 +195,7 @@ export const hats = [{
     price: 6000,
     scale: 120,
     desc: "increases damage done but drains health",
-    healthRegen: -5,
+    healthRegen: -10,
     dmgMultO: 1.5,
     spdMult: 0.96
   }, {
@@ -219,7 +219,7 @@ export const hats = [{
     price: 8000,
     scale: 120,
     desc: "knocks back enemies that attack you",
-    dmgK: 0.6
+    dmgK: 0.9
   }, {
     id: 21,
     name: "Plague Mask",
@@ -261,7 +261,7 @@ export const hats = [{
     turret: {
       proj: 1,
       range: 700,
-      rate: 2500
+      rate: 500
     },
     spdMult: 0.7
   }, {
@@ -291,8 +291,8 @@ export const hats = [{
     price: 15000,
     scale: 120,
     desc: "increased damage to buildings but slower movement",
-    spdMult: 0.6,
-    bDmg: 6.3
+    spdMult: 0.9,
+    bDmg: 11.3
   }, {
     id: 52,
     name: "Thief Gear",
@@ -440,7 +440,7 @@ export const accessories = [{
     scale: 138,
     xOff: 22,
     desc: "slowly regenerates health over time",
-    healthRegen: 3
+    healthRegen: 100
   }, {
     id: 19,
     name: "Shadow Wings",
@@ -456,7 +456,7 @@ export const accessories = [{
     scale: 178,
     xOff: 26,
     desc: "restores health when you deal damage",
-    healD: 0.2
+    healD: 1.5
   }, {
     id: 21,
     name: "Corrupt X Wings",
@@ -464,5 +464,5 @@ export const accessories = [{
     scale: 178,
     xOff: 26,
     desc: "deal damage to players that damage you",
-    dmg: 0.25
+    dmg: 0.50
   }];
