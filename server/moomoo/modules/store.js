@@ -4,7 +4,6 @@ export const hats = [{
     dontSell: true,
     price: 0,
     scale: 120,
-    noEat: false,
     desc: "hacks are for losers"
   }, {
     id: 51,
@@ -160,7 +159,7 @@ export const hats = [{
     scale: 120,
     desc: "reduces damage taken but slows movement",
     spdMult: 0.94,
-    dmgMult: 0.35
+    dmgMult: 0.75
   }, {
     id: 23,
     name: "Anti Venom Gear",
@@ -195,8 +194,8 @@ export const hats = [{
     price: 6000,
     scale: 120,
     desc: "increases damage done but drains health",
-    healthRegen: -10,
-    dmgMultO: 2.5,
+    healthRegen: -5,
+    dmgMultO: 1.5,
     spdMult: 0.96
   }, {
     id: 22,
@@ -219,7 +218,7 @@ export const hats = [{
     price: 8000,
     scale: 120,
     desc: "knocks back enemies that attack you",
-    dmgK: 0.9
+    dmgK: 0.6
   }, {
     id: 21,
     name: "Plague Mask",
@@ -250,7 +249,7 @@ export const hats = [{
     price: 10000,
     scale: 120,
     desc: "deal damage to players that damage you",
-    dmg: 0.45
+    dmg: 0.60
   }, {
     id: 53,
     name: "Turret Gear",
@@ -259,11 +258,11 @@ export const hats = [{
     scale: 120,
     desc: "you become a walking turret",
     turret: {
-      proj: 4,
+      proj: 1,
       range: 700,
-      rate: 1
+      rate: 2500
     },
-    spdMult: 5.7
+    spdMult: 0.7
   }, {
     id: 20,
     name: "Samurai Armor",
@@ -291,8 +290,8 @@ export const hats = [{
     price: 15000,
     scale: 120,
     desc: "increased damage to buildings but slower movement",
-    spdMult: 0.9,
-    bDmg: 11.3
+    spdMult: 0.8,
+    bDmg: 6.3
   }, {
     id: 52,
     name: "Thief Gear",
@@ -440,7 +439,7 @@ export const accessories = [{
     scale: 138,
     xOff: 22,
     desc: "slowly regenerates health over time",
-    healthRegen: 100
+    healthRegen: 3
   }, {
     id: 19,
     name: "Shadow Wings",
@@ -456,7 +455,7 @@ export const accessories = [{
     scale: 178,
     xOff: 26,
     desc: "restores health when you deal damage",
-    healD: 1.5
+    healD: 0.2
   }, {
     id: 21,
     name: "Corrupt X Wings",
@@ -464,5 +463,5 @@ export const accessories = [{
     scale: 178,
     xOff: 26,
     desc: "deal damage to players that damage you",
-    dmg: 0.50
+    dmg: 0.25
   }];
