@@ -159,7 +159,7 @@ export const hats = [{
     scale: 120,
     desc: "reduces damage taken but slows movement",
     spdMult: 0.94,
-    dmgMult: 0.75
+    dmgMult: 0.10
   }, {
     id: 23,
     name: "Anti Venom Gear",
@@ -173,7 +173,7 @@ export const hats = [{
     price: 5000,
     scale: 110,
     desc: "slowly regenerates health over time",
-    healthRegen: 3
+    healthRegen: 100
   }, {
     id: 9,
     name: "Miners Helmet",
@@ -249,7 +249,7 @@ export const hats = [{
     price: 10000,
     scale: 120,
     desc: "deal damage to players that damage you",
-    dmg: 0.60
+    dmg: 0.85
   }, {
     id: 53,
     name: "Turret Gear",
@@ -455,7 +455,7 @@ export const accessories = [{
     scale: 178,
     xOff: 26,
     desc: "restores health when you deal damage",
-    healD: 0.2
+    healD: 0.40
   }, {
     id: 21,
     name: "Corrupt X Wings",
@@ -463,5 +463,5 @@ export const accessories = [{
     scale: 178,
     xOff: 26,
     desc: "deal damage to players that damage you",
-    dmg: 0.25
+    dmg: 0.45
   }];
