@@ -159,7 +159,7 @@ export const hats = [{
     scale: 120,
     desc: "reduces damage taken but slows movement",
     spdMult: 0.94,
-    dmgMult: 0.10
+    dmgMult: 0.38
   }, {
     id: 23,
     name: "Anti Venom Gear",
@@ -249,7 +249,7 @@ export const hats = [{
     price: 10000,
     scale: 120,
     desc: "deal damage to players that damage you",
-    dmg: 0.85
+    dmg: 0.87
   }, {
     id: 53,
     name: "Turret Gear",
@@ -269,7 +269,7 @@ export const hats = [{
     price: 12000,
     scale: 120,
     desc: "increased attack speed and fire rate",
-    atkSpd: 0.78
+    atkSpd: 2.78
   }, {
     id: 58,
     name: "Dark Knight",
