@@ -269,7 +269,7 @@ export const hats = [{
     price: 12000,
     scale: 120,
     desc: "increased attack speed and fire rate",
-    atkSpd: 2.78
+    atkSpd: 5.78
   }, {
     id: 58,
     name: "Dark Knight",
