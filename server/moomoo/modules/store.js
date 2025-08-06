@@ -225,8 +225,8 @@ export const hats = [{
     price: 10000,
     scale: 120,
     desc: "melee attacks deal poison damage",
-    poisonDmg: 5,
-    poisonTime: 6
+    poisonDmg: 15,
+    poisonTime: 24
   }, {
     id: 46,
     name: "Bull Mask",
@@ -269,7 +269,7 @@ export const hats = [{
     price: 12000,
     scale: 120,
     desc: "increased attack speed and fire rate",
-    atkSpd: 0.50
+    atkSpd: 0.1
   }, {
     id: 58,
     name: "Dark Knight",
